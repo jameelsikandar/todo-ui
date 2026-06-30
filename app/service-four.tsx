@@ -45,7 +45,7 @@ export default function ServiceFour() {
         </View>
 
         <View style={{ flex: 1, alignItems: "flex-end" }}>
-          <TouchableOpacity onPress={() => router.push("/sign-in")}>
+          <TouchableOpacity onPress={() => router.replace("/sign-in")}>
             <Image source={require("@/assets/images/group1.png")} />
           </TouchableOpacity>
         </View>
