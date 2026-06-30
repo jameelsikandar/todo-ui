@@ -32,16 +32,16 @@
           "image": "./assets/images/Checkmark.png",
           "imageWidth": 200,
           "resizeMode": "contain",
-          "backgroundColor": "#05243E",
+          "backgroundColor": "#FF0000",
           "dark": {
-            "backgroundColor": "#05243E"
+            "backgroundColor": "#FF0000"
           }
         }
       ]
     ],
 
     "experiments": {
-      "typedRoutes": true
+      "typedRoutes": false
     }
   }
 }
