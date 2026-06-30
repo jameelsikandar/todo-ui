@@ -44,11 +44,7 @@ export default function VerificationPage() {
 
           {/* card  */}
 
-          <BlurView
-            intensity={25} // Adjusts the blur strength (0 - 100)
-            tint="light" // Gives it that soft white glass look over the blue
-            style={styles.card}
-          >
+          <BlurView intensity={25} tint="light" style={styles.card}>
             <Text
               style={{
                 fontFamily: "DarumadropOne",
