@@ -1,5 +1,5 @@
-import { Stack } from "expo-router";
 import { useFonts } from "expo-font";
+import { Stack } from "expo-router";
 
 export default function RootLayout() {
   const [fontsLoaded] = useFonts({
@@ -14,9 +14,18 @@ export default function RootLayout() {
   return (
     <Stack
       screenOptions={{
-        headerTitle: "Todo app",
         headerShown: false,
+        contentStyle: { backgroundColor: "#05243E" },
       }}
-    />
+    >
+      <Stack.Screen name="index" options={{ animation: "fade" }} />
+      <Stack.Screen name="service-one" />
+      <Stack.Screen name="service-two" />
+      <Stack.Screen name="service-three" />
+      <Stack.Screen name="service-four" />
+      <Stack.Screen name="sign-in" />
+      <Stack.Screen name="sign-up" />
+      <Stack.Screen name="verification" />
+    </Stack>
   );
 }
