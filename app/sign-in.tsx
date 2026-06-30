@@ -89,7 +89,10 @@ export default function SignInPage() {
 
         {/* sign in btn  */}
 
-        <TouchableOpacity style={styles.customButton}>
+        <TouchableOpacity
+          style={styles.customButton}
+          onPress={() => router.push("/home-screen")}
+        >
           <Text style={{ fontWeight: 600, color: "#fff", fontSize: 18 }}>
             sign in
           </Text>
