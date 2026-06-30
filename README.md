@@ -1,34 +1,71 @@
-#UI
+# Project UI Showcase
 
-#First page
+A comprehensive visual documentation of the application's user interface.
 
-![alt text](./readmeImages/image-1.png)
+## 📱 Screenshots
 
-#Second page
-![alt text](./readmeImages/image-2.png)
+### Onboarding / Initial Screens
 
-#Third page
-![alt text](./readmeImages/image-3.png)
+**First Page**  
+![First Page](./readmeImages/image-1.png)
 
-#Fourth page
-![alt text](./readmeImages/image-4.png)
+**Second Page**  
+![Second Page](./readmeImages/image-2.png)
 
-#Fifth page
-![alt text](./readmeImages/image-5.png)
+**Third Page**  
+![Third Page](./readmeImages/image-3.png)
 
-#Sixth page
-![alt text](./readmeImages/image-6.png)
+**Fourth Page**  
+![Fourth Page](./readmeImages/image-4.png)
 
-#Seventh page
+**Fifth Page**  
+![Fifth Page](./readmeImages/image-5.png)
 
-![alt text](./readmeImages/image-7.png)
+**Sixth Page**  
+![Sixth Page](./readmeImages/image-6.png)
 
-#Eight page
+**Seventh Page**  
+![Seventh Page](./readmeImages/image-7.png)
 
-![alt text](./readmeImages/image-8.png)
+**Eighth Page**  
+![Eighth Page](./readmeImages/image-8.png)
 
-#Nine page
-![alt text](./readmeImages/image-9.png)
+**Ninth Page**  
+![Ninth Page](./readmeImages/image-9.png)
 
-#Ten page
-![alt text](./readmeImages/image-10.png)
+**Tenth Page**  
+![Tenth Page](./readmeImages/image-10.png)
+
+---
+
+### Main App with Bottom Tab Navigation
+
+**🏠 Homepage**  
+![Homepage](./readmeImages/homepage.jpeg)
+
+**✅ Tasks**  
+![Tasks](./readmeImages/taskspage.jpeg)
+
+**📅 Calendar**  
+![Calendar](./readmeImages/calendar.jpeg)
+
+**⚙️ Settings**  
+![Settings](./readmeImages/settings.jpeg)
+
+---
+
+## ✨ Features Highlighted
+
+- Clean and modern UI design
+- Smooth onboarding flow (10 screens)
+- Bottom tab bar navigation
+- Responsive layout across different sections
+
+---
+
+## 📁 Image Structure
+
+All screenshots are stored in the `readmeImages/` directory:
+
+- `image-1.png` to `image-10.png` → Onboarding screens
+- `homepage.jpeg`, `taskspage.jpeg`, `calendar.jpeg`, `settings.jpeg` → Main app screens
