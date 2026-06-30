@@ -5,15 +5,52 @@ import {
   StyleSheet,
   TextInput,
   TouchableOpacity,
+  Alert,
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { colors } from "@/styles/global";
 import { Ionicons } from "@expo/vector-icons";
 import Entypo from "@expo/vector-icons/Entypo";
 import { useRouter } from "expo-router";
+import { useState } from "react";
 
 export default function SignUpPage() {
   const router = useRouter();
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async () => {
+    if (!name.trim()) {
+      Alert.alert("Error", "Full name is required.");
+      return;
+    } else if (!email.trim()) {
+      Alert.alert("Error", "Email is required.");
+      return;
+    } else if (!password.trim()) {
+      Alert.alert("Error", "Password is required.");
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      await new Promise((resolve) => setTimeout(resolve, 1500));
+
+      Alert.alert("Success", "Account created successfully!", [
+        {
+          text: "OK",
+          onPress: () => router.replace("/verification-screen"),
+        },
+      ]);
+    } catch (error: any) {
+      Alert.alert("Error", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <LinearGradient
       colors={["#1253AA", "#05243E"]}
@@ -59,6 +96,8 @@ export default function SignUpPage() {
               style={styles.input}
               placeholder="Full Name"
               placeholderTextColor="rgba(0,0,0,0.44)"
+              value={name}
+              onChangeText={setName}
             ></TextInput>
           </View>
 
@@ -69,6 +108,10 @@ export default function SignUpPage() {
               style={styles.input}
               placeholder="E-mail"
               placeholderTextColor="rgba(0,0,0,0.44)"
+              value={email}
+              onChangeText={setEmail}
+              autoCapitalize="none"
+              keyboardType="email-address"
             ></TextInput>
           </View>
 
@@ -80,14 +123,20 @@ export default function SignUpPage() {
               placeholder="Password"
               secureTextEntry={true}
               placeholderTextColor="rgba(0,0,0,0.44)"
+              value={password}
+              onChangeText={setPassword}
             ></TextInput>
           </View>
 
           {/* sign up btn  */}
 
-          <TouchableOpacity style={styles.customButton}>
+          <TouchableOpacity
+            style={styles.customButton}
+            onPress={handleSubmit}
+            disabled={loading}
+          >
             <Text style={{ fontWeight: 600, color: "#fff", fontSize: 18 }}>
-              sign up
+              {loading ? "creating account" : "sign up"}
             </Text>
           </TouchableOpacity>
         </View>
