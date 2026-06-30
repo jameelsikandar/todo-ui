@@ -9,7 +9,7 @@ export default function Services() {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      router.push("/service-one");
+      router.replace("/service-one");
     }, 2000);
 
     return () => clearTimeout(timer);
