@@ -5,15 +5,50 @@ import {
   StyleSheet,
   TextInput,
   TouchableOpacity,
+  Alert,
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { colors } from "@/styles/global";
 import { Ionicons } from "@expo/vector-icons";
 import Entypo from "@expo/vector-icons/Entypo";
 import { useRouter } from "expo-router";
+import { useState } from "react";
 
 export default function SignInPage() {
   const router = useRouter();
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const handleLogin = async () => {
+    if (!email.trim()) {
+      Alert.alert("Error, ", "Email is required");
+      return;
+    }
+    if (!password.trim()) {
+      Alert.alert("Error, ", "Password is required");
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      await new Promise((resolve) => setTimeout(resolve, 1500));
+
+      Alert.alert("Success", "Sign in successfull!", [
+        {
+          text: "OK",
+          onPress: () => router.replace("/(tabs)"),
+        },
+      ]);
+    } catch (error: any) {
+      Alert.alert("Error", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <LinearGradient
       colors={["#1253AA", "#05243E"]}
@@ -53,6 +88,9 @@ export default function SignInPage() {
               style={styles.input}
               placeholder="E-mail"
               placeholderTextColor="rgba(0,0,0,0.44)"
+              value={email}
+              onChangeText={setEmail}
+              autoCapitalize="none"
             ></TextInput>
           </View>
           {/* <View style={{ height: 35 }} /> */}
@@ -63,6 +101,8 @@ export default function SignInPage() {
               placeholder="Password"
               secureTextEntry={true}
               placeholderTextColor="rgba(0,0,0,0.44)"
+              value={password}
+              onChangeText={setPassword}
             ></TextInput>
           </View>
         </View>
@@ -91,10 +131,11 @@ export default function SignInPage() {
 
         <TouchableOpacity
           style={styles.customButton}
-          onPress={() => router.push("/home-screen")}
+          onPress={handleLogin}
+          disabled={loading}
         >
           <Text style={{ fontWeight: 600, color: "#fff", fontSize: 18 }}>
-            sign in
+            {loading ? "signing in" : "sign in"}
           </Text>
         </TouchableOpacity>
 
